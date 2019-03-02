@@ -94,13 +94,28 @@ this.LineChart = new Chart('lineChart', {
     data: {
      labels: [],
      datasets: [{
-         label: 'Motion g',
+         label: 'x_g',
          data: [],
          fill:false,
          lineTension:0.2,
          borderColor:"red",
          borderWidth: 1
-     }]
+     },{
+      label: 'y_g',
+      data: [],
+      fill:false,
+      lineTension:0.2,
+      borderColor:"green",
+      borderWidth: 1
+  },
+  {
+    label: 'z_g',
+    data: [],
+    fill:false,
+    lineTension:0.2,
+    borderColor:"blue",
+    borderWidth: 1
+}]
     }, 
     options: {
      title:{
@@ -156,8 +171,21 @@ this.LineChart = new Chart('lineChart', {
    }
  
 
+   this.LineChart2.data.labels.push(this.currentData.motion.timestamp)
+   this.LineChart2.data.datasets[0].data.push(this.currentData.motion.x_g); 
+   this.LineChart2.data.datasets[1].data.push(this.currentData.motion.y_g); 
+   this.LineChart2.data.datasets[2].data.push(this.currentData.motion.z_g); 
+
+   if(this.LineChart2.data.labels.length>5){
+    this.LineChart2.data.labels.shift();
+   }
+   if(this.LineChart2.data.datasets[0].data.length>5){
+    this.LineChart2.data.datasets[0].data.shift();
+   }
+
    this.LineChart.update();
    this.LineChart1.update();
+   this.LineChart2.update();
 
    
   });
@@ -197,10 +225,24 @@ this.LineChart = new Chart('lineChart', {
      if(this.LineChart1.data.datasets[0].data.length>5){
       this.LineChart1.data.datasets[0].data.shift();
      }
+
+     this.LineChart2.data.labels.push(this.currentData.motion.timestamp)
+   this.LineChart2.data.datasets[0].data.push(this.currentData.motion.x_g); 
+   this.LineChart2.data.datasets[1].data.push(this.currentData.motion.y_g); 
+   this.LineChart2.data.datasets[2].data.push(this.currentData.motion.z_g); 
+
+   if(this.LineChart2.data.labels.length>5){
+    this.LineChart2.data.labels.shift();
+   }
+   if(this.LineChart2.data.datasets[0].data.length>5){
+    this.LineChart2.data.datasets[0].data.shift();
+   }
+
    
   
      this.LineChart.update();
      this.LineChart1.update();
+     this.LineChart2.update();
   
      
     });

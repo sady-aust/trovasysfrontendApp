@@ -15,10 +15,10 @@ export class AirqualitycardComponent implements OnInit {
 
   ngOnInit() {
     if(this.cardname === 'Air Quality'){
-      if(parseInt(this.value)>500){
+      if(parseInt(this.value.toString())>450){
         this.airCondition = "Unhealthy"
       }
-      else if(parseInt(this.value)<=500){
+      else if(parseInt(this.value.toString())<=450){
         this.airCondition = "Normal"
       }
     }
