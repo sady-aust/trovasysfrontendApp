@@ -10,18 +10,17 @@ export class AirqualitycardComponent implements OnInit {
   cardname;
 @Input()
   value
+
+  covalue:number;
   airCondition:string ="Normal";
-  constructor() { }
+  constructor() { 
+  
+    
+  }
 
   ngOnInit() {
-    if(this.cardname === 'Air Quality'){
-      if(parseInt(this.value.toString())>450){
-        this.airCondition = "Unhealthy"
-      }
-      else if(parseInt(this.value.toString())<=450){
-        this.airCondition = "Normal"
-      }
-    }
+   
+    
   }
 
 }

@@ -1,7 +1,8 @@
 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
  
   <div class="card-body">
-    <h2 class="card-title text-center">{{airCondition}}</h2>
+    <h2 class="card-title text-center"  *ngIf='value>=300'>Unhealthy</h2>
+    <h2 class="card-title text-center"  *ngIf='value < 300'>Normal</h2>
   
   </div>
   <div class="card-header text-center">{{cardname}}</div>
