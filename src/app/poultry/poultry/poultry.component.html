@@ -1,0 +1,30 @@
+<app-header (ondeviceIdChanged)="onDeviceIdChange($event)"></app-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <table style="width:100%">
+        <tr *ngIf="currentData">
+          <app-card  [value]="currentData.temperature.value" cardname="Temperature"></app-card>
+        </tr>
+        <tr *ngIf="currentData">
+          <app-card  [value]="currentData.humidity.value" cardname="Humidity"></app-card>
+        </tr>
+        <tr *ngIf="currentData">
+          <app-airqualitycard  [value]="currentData.carbondioxide.value" cardname="Air Quality"></app-airqualitycard>
+        </tr>
+      </table>
+    </div>
+    <div class="col-8">
+      <canvas id="lineChart" ></canvas>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+     
+    </div>
+    <div class="col-8">
+      <canvas id="lineChart1" ></canvas>
+    </div>
+  </div>
+</div>
